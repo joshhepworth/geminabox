@@ -1,33 +1,45 @@
-@import "https://fonts.googleapis.com/css?family=Droid+Sans+Mono";
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic);
 
+/* -----------------------
+ * Typography
+ * ----------------------- */
+
+body, input, textarea {
+  font-size: 18px;
+  font-family: "Source Sans Pro",  sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+  font-weight: 700;
+}
+
+/* -----------------------
+ * Layout
+ * ----------------------- */
 
 body {
-  background: #ddd;
+  position: relative;
   color: #444;
-  font-size: 1.2em;
-  font-family: "helvetica neue",  sans-serif;
   margin: 0;
+  padding-top: 2.4em;
+  padding-bottom: 200px;
 }
 
 small {
-  color: #999;
-  font-size: 60%;
+  color: #777;
+  font-size: 0.8em;
 }
 
 
 a {
   text-decoration: none;
-  color: #00a;
+  color: #A3002D;
 }
 
 a:hover {
-  color: #00f;
-}
-
-a#more_link {
-  font-size: 0.7em;
-  line-height: 1.2;
-  vertical-align: bottom;
+  color: #C2466E;
 }
 
 form {
@@ -39,31 +51,79 @@ code {
   font-family: "Droid Sans Mono", monospace;
 }
 
-#content {
-  background: #fff;
-  border: 1px solid #ccc;
+pre {
+  box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; -webkit-box-sizing: border-box;
+  margin: 0 0 1em 0;
+  background: #eaeaef;
+  padding: 0.7em 1.4em 0.9em 1.4em;
+}
+
+.small-heading {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+.small-heading.installation {
+  margin-bottom: 0.9em;
+}
+
+.content {
+  position: relative;
   width: 600px;
   margin: 0 auto;
-  overflow: hidden;
   padding: 0.5em 0 1em 0;
-  text-align: center;
 }
 
-#content h1 {
+.content h1 {
   margin: 0;
-  color: #a00;
-  font-weight: 600;
-  text-shadow: #aaa 1px 1px 1px;
+  color: #A3002D;
 }
 
-h2 {
-  font-weight: 200;
+#alpha_index {
+  font-size: 0.7em;
+  margin-top: 1.0em;
+  color: #aaa;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 6px;
+}
+
+.back {
+  margin-top: 0.5em;
+}
+
+.gem-version p {
+  margin: 0;
+  padding: 1px 0;
+  border: 0;
+  font-size: 0.89em;
+}
+
+.gem-version small.platform {
+  padding: 0 0 0 15px;
+}
+
+.gem-version h2 {
+  font-weight: 700;
   font-size: 1em;
   color: #000;
   margin: 0 0 .5em 0;
   padding: 0.3em 0;
-  background: #aaa;
-  border-radius: .5em .5em 0 0; -moz-border-radius: .5em .5em 0 0; -webkit-border-radius: .5em .5em 0 0;
+}
+
+.gem-version h2 small {
+  font-weight: 400;
+}
+
+.gem-version h2 .detail {
+  float: right;
+  font-weight: 400;
+  font-size: 0.8em;
+  line-height: 24px;
+  margin-left: 0.625em;
+  display: inline-block;
 }
 
 ul.gemlist {
@@ -76,80 +136,165 @@ ul.gemlist {
 }
 
 ul.gemlist li {
-  margin: 1em;
-  background: #eee;
-  border-radius: .5em; -moz-border-radius: .5em; -webkit-border-radius: .5em;
+  margin: 1em 0 2em 0;
   position: relative;
-  overflow: hidden;
 }
 
-ul.gemlist li strong {
-  display: block;
-  font-size: 1.2em;
+ul.gemlist li .description {
+  white-space: pre-wrap;
 }
 
-ul.gemlist li .delete-form {
-  position: relative;
-  margin: 2px 0;
+ul.gemlist li .small-details {
+  font-size: 0.8em;
+  margin-bottom: 0.2em;
 }
-ul.gemlist li button,
-ul.gemlist li a.download
-{
-  display: none;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  border-radius: .5em 0 0 .5em; -moz-border-radius: .5em 0 0 .5em; -webkit-border-radius: .5em 0 0 .5em;
-  background: #c55;
-  border: 0;
-  color: #fff;
+
+ul.gemlist li .small-details .detail {
+  margin-right: 0.4em;
+}
+
+ul.gemlist li .detail.delete button {
+  -webkit-appearance: none;
+  appearance: none;
+  background: 0;
+  padding: 0;
   margin: 0;
-  font-size: 8pt;
-  padding: 3px;
+  border: none;
+  color: #A3002D;
   cursor: pointer;
 }
 
-ul.gemlist li a.download {
-  background: #5c5;
-  border-radius: .5em 0 0 .5em; -moz-border-radius: .5em 0 0 .5em; -webkit-border-radius:  0 .5em .5em 0;
-  left: 0;
-  right: auto;
+ul.gemlist li .detail.delete button:hover {
+  color: #C2466E;
 }
 
-ul.gemlist li:hover button,
-ul.gemlist li:hover a.download {
-  margin: 0;
+/* -----------------------
+ * Header
+ * ----------------------- */
+
+#header {
+  -webkit-font-smoothing: antialiased;
+  background: rgba(163, 0, 45, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.2em;
+  z-index: 10000;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+#header a {
+  color: #fff;
+}
+
+#header a:hover {
+  color: #E6AECA;
+}
+
+#header .content {
+  padding: 0.2em 0;
+}
+
+#header .icon {
+  margin-right: 0.3em;
+  position: absolute;
+  top: 3px;
+  left: 0;
   display: block;
 }
 
-.details {
+#header h1 {
+  font-size: 1.2em;
+}
+
+#navigation {
+  padding-left: 0;
+  list-style: none;
+  position: absolute;
+  right: 0;
+  top: 0.57em;
+  font-size: 0.9em;
   margin: 0;
-  overflow: hidden;
-  margin-top: 1em;
-  font-size: 0.7em;
-  border-radius: 0 0 .5em .5em; -moz-border-radius: 0 0 .5em .5em; -webkit-border-radius: 0 0 .5em .5em;
-  border-top: 1px dashed #ddd;
-  background: #ddd;
 }
 
-#alpha_index {
-  font-size: 0.8em;
-  margin-top: 1.0em;
-  color: #aaa;
+#navigation li {
+  float: left;
+  margin-left: 1.5em;
 }
 
+/* ----------------------------------
+ * Icons
+ * ---------------------------------- */
 
-.gem-version p {
-  margin: 0;
-  padding: 1px 0;
-  border: 0;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 100%;
-  line-height: 1;
-  font-family: inherit;
+/* WARNING:	You are using ligatures for your icon font.
+			Ligatures are not supported in IE 9 (and older).
+			Use the Private Use Area encoding for best browser support.
+==================================================================== */
+/*@font-face {*/
+	/*font-family: 'icons';*/
+	/*src:url('fonts/icons.eot');*/
+/*}*/
+@font-face {
+	font-family: 'icons';
+	src: url(data:application/x-font-woff;charset=utf-8;base64,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) format('woff'),
+		 url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
-.gem-version small.platform {
-  padding: 0 0 0 15px;
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon,
+.icon-cloud-download,
+.icon-user,
+.icon-cog,
+.icon-x,
+.icon-info,
+.icon-cloud-upload,
+.icon-home {
+	font-family: 'icons';
+		speak: none;
+	/* Enable Ligatures */
+	-webkit-font-feature-settings:"liga","dlig";-moz-font-feature-settings:"liga=1, dlig=1";-moz-font-feature-settings:"liga","dlig";-ms-font-feature-settings:"liga","dlig";-o-font-feature-settings:"liga","dlig";
+	font-feature-settings:"liga","dlig";
+	text-rendering:optimizeLegibility;
+		font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
 }
+.icon-cloud-download:before {
+	content: "\64\6f\77\6e\6c\6f\61\64";
+}
+.icon-user:before {
+	content: "\70\65\72\73\6f\6e";
+}
+.icon-cog:before {
+	content: "\73\65\74\74\69\6e\67";
+}
+.icon-x:before {
+	content: "\64\65\6c\65\74\65";
+}
+.icon-info:before {
+	content: "\69\6e\66\6f";
+}
+.icon-cloud-upload:before {
+	content: "\75\70\6c\6f\61\64";
+}
+.icon-home:before {
+	content: "\68\6f\6d\65";
+}
+
+/*! Hint.css - v1.2.2 - 2013-06-01
+* http://kushagragour.in/lab/hint/
+* Copyright (c) 2013 Kushagra Gour; Licensed MIT */
+
+.hint,[data-hint]{position:relative;display:inline-block}.hint:before,.hint:after,[data-hint]:before,[data-hint]:after{position:absolute;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);visibility:hidden;opacity:0;z-index:1000000;pointer-events:none;-webkit-transition:.3s ease;-moz-transition:.3s ease;transition:.3s ease}.hint:hover:before,.hint:hover:after,[data-hint]:hover:before,[data-hint]:hover:after{visibility:visible;opacity:1}.hint:before,[data-hint]:before{content:'';position:absolute;background:transparent;border:6px solid transparent;z-index:1000001}.hint:after,[data-hint]:after{content:attr(data-hint);background:#383838;color:#fff;text-shadow:0 -1px 0 black;padding:8px 10px;font-size:12px;line-height:12px;white-space:nowrap;}.hint--top:before{border-top-color:#383838}.hint--bottom:before{border-bottom-color:#383838}.hint--left:before{border-left-color:#383838}.hint--right:before{border-right-color:#383838}.hint--top:before{margin-bottom:-12px}.hint--top:after{margin-left:-18px}.hint--top:before,.hint--top:after{bottom:100%;}.hint--top:hover:before,.hint--top:hover:after{-webkit-transform:translateY(-8px);-moz-transform:translateY(-8px);transform:translateY(-8px)}.hint--bottom:before{margin-top:-12px}.hint--bottom:after{margin-left:-18px}.hint--bottom:before,.hint--bottom:after{top:100%;left:50%}.hint--bottom:hover:before,.hint--bottom:hover:after{-webkit-transform:translateY(8px);-moz-transform:translateY(8px);transform:translateY(8px)}.hint--right:before{margin-left:-12px;margin-bottom:-6px}.hint--right:after{margin-bottom:-14px}.hint--right:before,.hint--right:after{left:100%;bottom:50%}.hint--right:hover:before,.hint--right:hover:after{-webkit-transform:translateX(8px);-moz-transform:translateX(8px);transform:translateX(8px)}.hint--left:before{margin-right:-12px;margin-bottom:-6px}.hint--left:after{margin-bottom:-14px}.hint--left:before,.hint--left:after{right:100%;bottom:50%}.hint--left:hover:before,.hint--left:hover:after{-webkit-transform:translateX(-8px);-moz-transform:translateX(-8px);transform:translateX(-8px)}.hint--error:after{background-color:#b34e4d;text-shadow:0 -1px 0 #5a2626}.hint--error.hint--top:before{border-top-color:#b34e4d}.hint--error.hint--bottom:before{border-bottom-color:#b34e4d}.hint--error.hint--left:before{border-left-color:#b34e4d}.hint--error.hint--right:before{border-right-color:#b34e4d}.hint--warning:after{background-color:#c09854;text-shadow:0 -1px 0 #6d5228}.hint--warning.hint--top:before{border-top-color:#c09854}.hint--warning.hint--bottom:before{border-bottom-color:#c09854}.hint--warning.hint--left:before{border-left-color:#c09854}.hint--warning.hint--right:before{border-right-color:#c09854}.hint--info:after{background-color:#3986ac;text-shadow:0 -1px 0 #193c4c}.hint--info.hint--top:before{border-top-color:#3986ac}.hint--info.hint--bottom:before{border-bottom-color:#3986ac}.hint--info.hint--left:before{border-left-color:#3986ac}.hint--info.hint--right:before{border-right-color:#3986ac}.hint--success:after{background-color:#458746;text-shadow:0 -1px 0 #1a331a}.hint--success.hint--top:before{border-top-color:#458746}.hint--success.hint--bottom:before{border-bottom-color:#458746}.hint--success.hint--left:before{border-left-color:#458746}.hint--success.hint--right:before{border-right-color:#458746}.hint--always:after,.hint--always:before{opacity:1;visibility:visible}.hint--always.hint--top:after,.hint--always.hint--top:before{-webkit-transform:translateY(-8px);-moz-transform:translateY(-8px);transform:translateY(-8px)}.hint--always.hint--bottom:after,.hint--always.hint--bottom:before{-webkit-transform:translateY(8px);-moz-transform:translateY(8px);transform:translateY(8px)}.hint--always.hint--left:after,.hint--always.hint--left:before{-webkit-transform:translateX(-8px);-moz-transform:translateX(-8px);transform:translateX(-8px)}.hint--always.hint--right:after,.hint--always.hint--right:before{-webkit-transform:translateX(8px);-moz-transform:translateX(8px);transform:translateX(8px)}.hint--rounded:after{border-radius:4px}
+
